@@ -20,8 +20,8 @@ fastify.get('/', async function handler (request, reply) {
       console.log(`Server is running on port ${PORT}`);
       await sequelize.authenticate();
       console.log('Connection  successfully.');
-      // await sequelize.sync(); 
-      await createInitialData();
+      await sequelize.sync(); 
+      //await createInitialData();
     } catch (error) {
       console.error('Unable to connect to the database:', error);
       fastify.log.error(error);
