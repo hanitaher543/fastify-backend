@@ -1,0 +1,22 @@
+{
+  "name": "fastify-backend",
+  "version": "1.0.0",
+  "description": "Building a project with Fastify.js",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev" :"nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hanitaher543/fastify-backend.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hanitaher543/fastify-backend/issues"
+  },
+  "homepage": "https://github.com/hanitaher543/fastify-backend#readme"
+}
