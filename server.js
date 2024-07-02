@@ -1,17 +1,15 @@
 // IMPORTS
 const fastify = require('fastify')({ logger: true });
 
-
 const sequelize = require('./config/database');
 
 const PORT = 3000;
 
 
 
+
 // Declare a route
-fastify.get('/', async function handler (request, reply) {
-    return { msg: 'hello from my project fastify !!' }
-  })
+
 
 
   const start = async () => {
