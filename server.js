@@ -1,17 +1,20 @@
 // IMPORTS
 const fastify = require('fastify')({ logger: true });
-
 const sequelize = require('./config/database');
-
 const PORT = 3000;
 
 
 
 
-// Declare a route
+// Routing
+fastify.register(require ('./routes/user'));
 
 
 
+
+
+
+// Run server and connect to db
   const start = async () => {
     try {
       await fastify.listen({ port: PORT });

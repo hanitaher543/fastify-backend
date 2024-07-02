@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "Building a project with Fastify.js",
   "main": "index.js",
-  
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon server.js"
@@ -20,6 +19,7 @@
   },
   "homepage": "https://github.com/hanitaher543/fastify-backend#readme",
   "dependencies": {
+    "bcrypt": "^5.1.1",
     "fastify": "^4.28.1",
     "nodemon": "^3.1.4",
     "pg": "^8.12.0",
