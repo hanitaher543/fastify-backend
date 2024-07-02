@@ -1,4 +1,4 @@
-// Import the framework and instantiate it
+// IMPORTS
 const fastify = require('fastify')({ logger: true });
 
 
@@ -19,11 +19,11 @@ fastify.get('/', async function handler (request, reply) {
       await fastify.listen({ port: PORT });
       console.log(`Server is running on port ${PORT}`);
       await sequelize.authenticate();
-      console.log('Connection  successfully.');
+      console.log('Connection has been established successfully!!');
       await sequelize.sync(); 
-      //await createInitialData();
+
     } catch (error) {
-      console.error('Unable to connect to the database:', error);
+      console.log(`Server failed to start on port ${PORT}`)
       fastify.log.error(error);
       process.exit(1);
     }
