@@ -1,5 +1,6 @@
 const User = require('../models/user')
 const bcrypt = require ('bcrypt')
+const jwt = require ('jsonwebtoken');
 
 const Router = (fastify, options, done) => {
 
@@ -40,16 +41,27 @@ const Router = (fastify, options, done) => {
 
             // 3: verifiy if user exist or no using mail
             if(!user){
-                return  res.status(404).send({ error: 'User not found !!' });
+                return  res.status(404).send({ error: 'email or password invalid !!' });
             }
 
             // 4 : verify if user exist or no using password
             const isPasswordValid = await bcrypt.compare(password, user.password);
             if(!isPasswordValid){
-                return res.code(401).send({ error: 'Invalid password' });
+                return res.code(401).send({ error: 'Invalid password !!' });
             }
 
-            res.status(200).send({ message: 'Login successful !!'});
+           // res.status(200).send({ message: 'Login successful !!'});
+
+            // 5 : Create TOKEN : AFTER verify my login and password is corrected 
+            payload = {
+                id : user.id,
+                email : user.email,
+                //password : user.password
+
+            };
+            token = jwt.sign(payload, '123456789')
+            res.status(200).send({mytoken : token});
+
 
             
 
