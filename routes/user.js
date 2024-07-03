@@ -1,12 +1,12 @@
 const User = require('../models/user')
 const bcrypt = require ('bcrypt')
 
-const Router = (fastify) => {
+const Router = (fastify, options, done) => {
 
 
-    fastify.post('/register', async (req, res) =>{
+    fastify.post('/register', async (req, res) => {
         // 1 : Read data from request
-        const { fullname, email, password, telephone} = req.body;
+        const { fullname, email, password, telephone } = req.body;
 
         try{
         // crypt my password
@@ -18,7 +18,7 @@ const Router = (fastify) => {
             password : hashedPassword,
             telephone,
          });
-         res.status(200).send({ message: 'User registered successfully', user: newUser})
+         res.status(200).send({ message: 'User registered successfully', user: newUser});
 
         } catch (error){
          res.status(500).send({error: 'User registration failed', details: error});
@@ -27,8 +27,9 @@ const Router = (fastify) => {
 
 
 
-
-}
+//Running Router
+  done();
+};
 
 
 

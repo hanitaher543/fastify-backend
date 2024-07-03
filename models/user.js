@@ -23,9 +23,9 @@ const User = sequelize.define('User', {
         allowNull : false,
     },
     telephone : {
-        type : DataTypes.NUMBER,
+        type : DataTypes.STRING,
         allowNull : false,
     },
 });
 
-exports.module = User;
+module.exports = User;

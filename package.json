@@ -4,7 +4,7 @@
   "description": "Building a project with Fastify.js",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
     "dev": "nodemon server.js"
   },
   "repository": {
@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/hanitaher543/fastify-backend#readme",
   "dependencies": {
+    "@fastify/formbody": "^7.4.0",
     "bcrypt": "^5.1.1",
     "fastify": "^4.28.1",
     "nodemon": "^3.1.4",

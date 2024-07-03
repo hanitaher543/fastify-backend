@@ -22,6 +22,7 @@ fastify.register(require ('./routes/user'));
       await sequelize.authenticate();
       console.log('Connection has been established successfully!!');
       await sequelize.sync(); 
+      //await createInitialData();
 
     } catch (error) {
       console.log(`Server failed to start on port ${PORT}`)
@@ -29,5 +30,5 @@ fastify.register(require ('./routes/user'));
       process.exit(1);
     }
   };
-  
+    
   start();
