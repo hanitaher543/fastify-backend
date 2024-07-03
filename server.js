@@ -8,6 +8,7 @@ const PORT = 3000;
 
 // Routing
 fastify.register(require ('./routes/user'));
+fastify.login(require('./routes/user'));
 
 
 
