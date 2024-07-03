@@ -57,7 +57,6 @@ const Router = (fastify, options, done) => {
                 id : user.id,
                 email : user.email,
                 //password : user.password
-
             };
             token = jwt.sign(payload, '123456789')
             res.status(200).send({mytoken : token});
