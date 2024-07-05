@@ -1,6 +1,7 @@
 const User = require('../models/user')
 const bcrypt = require ('bcrypt')
 const jwt = require ('jsonwebtoken');
+const Token = require ('../models/Token');
 
 const Router = (fastify, options, done) => {
 
@@ -53,13 +54,22 @@ const Router = (fastify, options, done) => {
            // res.status(200).send({ message: 'Login successful !!'});
 
             // 5 : Create TOKEN : AFTER verify my login and password is corrected 
-            payload = {
+           /* payload = {
                 id : user.id,
                 email : user.email,
                 //password : user.password
             };
             token = jwt.sign(payload, '123456789')
-            res.status(200).send({mytoken : token});
+            res.status(200).send({mytoken : token}); */
+
+            // Access Token & Refresh Token
+            const accessToken   =   jwt.sign({ id: user.id }, 'mkljbhghvbkjcghjklmlkjhghj',  { expiresIn: '15m' });
+            const refreshToken  =   jwt.sign({ id: user.id }, 'kjhvcxcfghjkjhgghjkllkjhgvc', { expiresIn: '7d' });
+
+            await Token.create({accessToken : accessToken , refreshToken : refreshToken,  userId : user.id})
+
+            res.status(200).send({message : 'Login successful', accessToken, refreshToken});
+
 
 
             

@@ -1,9 +1,6 @@
 const { DataTypes } = require("sequelize");
 const sequelize = require("../config/database");
 
-
-
-
 const Token = sequelize.define('Token',{
 
     id : {
@@ -11,7 +8,7 @@ const Token = sequelize.define('Token',{
         autoIncrement : true,
         primaryKey : true,
     },
-    accesToken : {
+    accessToken :{
         type: DataTypes.STRING,
         allowNull: false,
     },
@@ -23,7 +20,7 @@ const Token = sequelize.define('Token',{
         type : DataTypes.INTEGER,
         allowNull : false,
         references : {
-            model : 'User',
+            model : 'Users',
             key : 'id'
         },
         onDelete: 'CASCADE',
